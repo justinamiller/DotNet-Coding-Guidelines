@@ -3,12 +3,12 @@ This repo highlights the list of software engineering guidelines in general. Mos
 
 It's a fact that coding standards are arbitrary. The key to a successful maintainable project, however, is not which standards you follow, but that you are consistent.
 
-Just keep in mind that this post isn't about how you should indent your code (tabs vs spaces or curly braces placements), but it's more of a guidlines on how to write clean code that are easy to manage. With that said, if you are leading a team or even a single contributor developer who wanted to become better, having a set of coding guidelines is a great start to make that happen.
+Just keep in mind that this post isn't about how you should indent your code (tabs vs spaces or curly braces placements), but it's more of a guideline on how to write clean code that are easy to manage. With that said, if you are leading a team or even a single contributor developer who wanted to become better, having a set of coding guidelines is a great start to make that happen.
 
 In this post, I will highlight the list of software engineering guidelines in general. Most of these are industry-wise conventions, thus using them will ensure that your code is easily readable by people who are not you.
 
 ### Tip #1
-✋ Try to avoid the tradional if-else statements like in the following:
+✋ Try to avoid the traditional if-else statements like in the following:
 ````
 bool result;
 if (condition)
@@ -110,7 +110,7 @@ if (number is null)
 ### Tip #6
 ✋ Avoid code without braces ({}) for single conditional if statement, for and foreach loops like in the following:
 ```
-if(conditioin) action;
+if(condition) action;
 ```
 Without the braces, it is too easy to accidentally add a second line thinking it is included in the if, when it isn’t.
 
@@ -219,7 +219,7 @@ string greetings = string.Format("Today is {0}, the time is {1:HH:mm} now.", dat
 var date = DateTime.Now;
 string greetings = $"Today is {date.DayOfWeek}, the time is {date:HH:mm} now.");
 ```
-The preceding code is much easier to understand and concise. However, there are certain cases that using the string.Format() would makes more sense. For example, when dealing with complex formatting and data manipulation. So, use your judgement when to apply them in situations.
+The preceding code is much easier to understand and concise. However, there are certain cases where using the `string.Format()` would make more sense. For example, when dealing with complex formatting and data manipulation. So, use your judgement when to apply them in situations.
 
 ### Tip #11
 ✋ Avoid using specific type for complex objects when defining variables like in the following:
@@ -291,14 +291,14 @@ public (string FirstName, string LastName) GetName()
 The preceding code is more convenient for accessing objects and manipulating the data set. Tuples replaces the need to create a new class whose sole purpose is to carry around data.
 
 ### Tip #15
-✋ Try to create an Extention Methods to perform common tasks such as conversion, validationn, formatting, parsing, transformation, you name it. So, instead of doing the following:
+✋ Try to create an Extension Methods to perform common tasks such as conversion, validation, formatting, parsing, transformation, you name it. So, instead of doing the following:
 ```
 string dateString = "40/1001/2021";
 var isDateValid = DateTime.TryParse(dateString, our var date);
 ```
-The preceding code is perfectly fine and should handle the conversion safely. However, the code is bit lengthy just to do basic conversion. Imagine you have tons of the same code conversion cluttering within the different areas in your project. Your code could turn into a mess or potentially causes you alot of development time overtime.
+The preceding code is perfectly fine and should handle the conversion safely. However, the code is a bit lengthy just to do basic conversion. Imagine you have tons of the same code conversion cluttering within the different areas in your project. Your code could turn into a mess or potentially cause you a lot of development time overtime.
 
-👍 To prevent that, you should consider creating a helper/utility functions to do common tasks that can be reused across projects. For example, the preceding code can now be converted to following extension:
+👍 To prevent that, you should consider creating helper/utility functions to do common tasks that can be reused across projects. For example, the preceding code can now be converted to following extension:
 ```
 public static class DateExtensions
 {
@@ -341,7 +341,7 @@ public class PersonManager
     }  
 } 
 ```
-The preceding code removes alot of noise in your code when injecting dependencies as you don't need to write private readonly declarations which can make your code cleaner.
+The preceding code removes a lot of noise in your code when injecting dependencies as you don't need to write private readonly declarations which can make your code cleaner.
 
 In situations where you want to expose one of the fields to be public, you can define and set it in the constructor as what you would normally do. Otherwise, the arguments are marked as private fields.
 
@@ -358,7 +358,7 @@ string firstName;
 int orderCount; 
 bool isCompleted; 
 ```
-The preceding code is consistent with the Microsoft’s .NET Framework and makes code more natural to read.
+The preceding code is consistent with Microsoft’s .NET Framework and makes code more natural to read.
 
 ### Tip #18
 ✋ Do not use initials as identifier abbreviations like in the following:
@@ -377,7 +377,7 @@ private readonly ProductManager _productManager;
 The preceding code provides more clarity as it clearly suggests what the object is about.
 
 ### Tip #19
-👍 Do organize namespaces with a clearly defined structure. Generally namespaces should reflect the folder hierarchy within a project. Take a look at the followinng example:
+👍 Do organize namespaces with a clearly defined structure. Generally namespaces should reflect the folder hierarchy within a project. Take a look at the following example:
 ```
 namespace ProjectName.App.Web
 namespace ProjectName.Services.Common
@@ -385,7 +385,7 @@ namespace ProjectName.Services.Api.Payment
 namespace ProjectName.Services.Api.Ordering
 namespace ProjectName.Services.Worker.Ordering
 ```
-The preceding code suggest good organization of your code within the project, allowing you to navigate between layers easily.
+The preceding code suggests good organization of your code within the project, allowing you to navigate between layers easily.
 
 ### Tip #20
 👍 Do use singular form, noun or noun phrases to name a class:
@@ -434,7 +434,7 @@ public class ClassName
     } 
 } 
 ```
-This is so that our code are consistent with the Microsoft .NET Framework.
+This is so that our code is consistent with the Microsoft .NET Framework.
 
 ### Tip #23
 👍 Do use Camel Casing for method arguments and local variables:
@@ -444,7 +444,7 @@ public void MethodName(CreatePersonRequestDto requestDto)
        var firstName = requestDto.FirstName; 
 } 
 ```
-This is so that our code are consistent with the Microsoft .NET Framework.
+This is so that our code is consistent with the Microsoft .NET Framework.
 
 ### Tip #24
 👍 Do use meaningful and self-explanatory names for classes, methods and properties:
@@ -456,7 +456,7 @@ public List<Person> GetPersonProfileById(long personId)
        //do something
 }
 ```
-This makes your code easier to read and understand without having you to write (or atleast minimizes) comments of what the code does.
+This makes your code easier to read and understand without having you to write (or at least minimize) comments of what the code does.
 
 ### Tip #25
 👍 Do suffix asynchronous methods with the Async word:
@@ -467,10 +467,10 @@ public async Task<List<Person>> GetPersonProfileByIdAsync(long personId)
 }
 ```
 
-This enable developers to easily identify synchornous vs asynchronous methods by just looking at the method itself.
+This enables developers to easily identify synchronous vs asynchronous methods by just looking at the method itself.
 
 ### Tip #26
-Do prefix interfaces with the capital letter I
+👍 Do prefix interfaces with the capital letter I
 ```
 public interface IPersonManager 
 { 
@@ -498,7 +498,7 @@ private int _age;
 This is just a generally accepted practice that prevents the need to hunt for variable declarations.
 
 ### Tip #29
-👍 Do consider putting all your private methods at the botoom after public methods:
+👍 Do consider putting all your private methods at the bottom after public methods:
 ```
 public class SomeClass
 {
@@ -538,27 +538,27 @@ Why? same reason for Tip #28.
 
 #endregion
 ```
-The preceding code is a code smell which could potentially make your code grow without you realizing it. I admit that I have used this feature many times to collapse the code within a class. However, I realize that hiding code into regions won't give you any value aside from maximizing your visual view when the region is collapsed. If you are working with a team of developers on a project, chances are, other developers will append their code in there until the code get's bigger and bigger over time. As a good practice, it's always recommended to keep your classes small as possible.
+The preceding code is a code smell which could potentially make your code grow without you realizing it. I admit that I have used this feature many times to collapse the code within a class. However, I realize that hiding code into regions won't give you any value aside from maximizing your visual view when the region is collapsed. If you are working with a team of developers on a project, chances are, other developers will append their code in there until the code gets bigger and bigger over time. As a good practice, it's always recommended to keep your classes small as possible.
 
 If you have tons of private methods within a class, you could split them into a separate class instead.
 
-### Tip #30
+### Tip #31
 👍 Try to use short-hand names only when they’re generally known:
 ```
 private readonly CreateQuestionDefinitionRequestDto _requestDto;
 ```
-It would be too much to name a variable "createQuestionDefinitionRequestDto" when you know that the variable/parameter is a request object. The same thing applies for FTP, UI, IO, etc. It's perfectly fine to use abbreviation for as long as they're generally known, otherwise it would be counter productive not to do so.
+It would be too much to name a variable "createQuestionDefinitionRequestDto" when you know that the variable/parameter is a request object. The same thing applies for FTP, UI, IO, etc. It's perfectly fine to use abbreviation for as long as they're generally known, otherwise it would be counterproductive not to do so.
 
-### Tip #31
+### Tip #32
 ✋ Avoid underscores (_) in between identifier names:
 ```
 public PersonManager person_Manager;
 private long rows_Affected;
 private DateTime row_updated_date_time;
 ```
-The reason being is that C# isn't postgres. Seriously, it's to be consistent with the Microsost .NET Framework convention and makes your code more natural to read. It can also avoid "underline stress" or inability to see underline.
+The reason being is that C# isn't postgres. Seriously, it's to be consistent with the Microsoft .NET Framework convention and makes your code more natural to read. It can also avoid "underline stress" or inability to see underline.
 
-### Tip #32
+### Tip #33
 ✋ Do not use SCREAMING CAPS for constants or read-only variables:
 ```
 public static const string EXTERNALIDTYPE = "ABC"; 
@@ -566,7 +566,7 @@ public static const string ENVIRONMENT_VARIABLE_NAME = "TEST";
 ```
 They just grab too much attention.
 
-### Tip #33
+### Tip #34
 ✋ Do not use Hungarian notation or any other type identification in identifiers (except interfaces):
 ```
 int iCounter; 
@@ -576,7 +576,7 @@ OrderingService svcOrdering;
 ```
 Visual Studio code editor already provides helpful tooltips to determine object types. In general, you want to avoid type indicators in the identifier.
 
-### Tip #34
+### Tip #35
 ✋ Do not use an "Enum" suffix in enum type names and do not use plural form names for enums.
 
 The following is an example for defining an enum:
@@ -592,8 +592,8 @@ public enum BeerType
 ```
 Again, this is to be consistent with the Microsoft .NET framework and avoids type indicators in the identifier.
 
-### Tip #35
-👍 Try to use record types for immutable objects. Record types is a new feature introduced in C# 9 where it simplfies your code. For example, the following code:
+### Tip #36
+👍 Try to use record types for immutable objects. Record types is a new feature introduced in C# 9 where it simplifies your code. For example, the following code:
 ```
 public class Person
 {
@@ -611,4 +611,4 @@ can be written in the following way using record:
 ```
 public record Person(string FirstName, string LastName);
 ```
-Using record types will automatically generates the boilerplate code for you and keeping your code concise. Records will be really useful for defining DTOs, Commands or any object that carries immutable data around. For more information about this feature, see: [Record Types](https://devblogs.microsoft.com/dotnet/c-9-0-on-the-record/)
+Using record types will automatically generate the boilerplate code for you and keep your code concise. Records will be really useful for defining DTOs, Commands or any object that carries immutable data around. For more information about this feature, see: [Record Types](https://devblogs.microsoft.com/dotnet/c-9-0-on-the-record/)

@@ -231,7 +231,7 @@ The preceding code reduces the number of curly braces in your method, but it can
 ### Avoid concatenating strings with the + sign/symbol like in the following:
 
 ```
-string name = "Vianne";
+string space = "Vianne";
 string greetings = "Hello " + name + "!";
 ```
 
@@ -418,7 +418,7 @@ private readonly ProductManager _productManager;
 
 The preceding code provides more clarity as it clearly suggests what the object is about.
 
-### Do organize namespaces with a clearly defined structure. Generally namespaces should reflect the folder hierarchy within a project. Take a look at the followinng example:
+### Do organize namespaces with a clearly defined structure. Take a look at the following example:
 
 ```
 namespace ProjectName.App.Web
@@ -428,7 +428,7 @@ namespace ProjectName.Services.Api.Ordering
 namespace ProjectName.Services.Worker.Ordering
 ```
 
-The preceding code suggest good organization of your code within the project, allowing you to navigate between layers easily.
+Generally namespaces should reflect the folder hierarchy within a project. The preceding code suggest good organization of your code within the project, allowing you to navigate between layers easily.
 
 ### Do use singular form, noun or noun phrases to name a class:
 

@@ -6,6 +6,21 @@ Just keep in mind that this post isn't about how you should indent your code, bu
 
 Also, feel free to add your own tips through pull requets.
 
+### Try to avoid boxing like in the following:
+```
+int x = 32;
+object o = x;
+```
+Boxing is the process of wrapping a value type such as a primitive or struct inside an object that lives on the heap. Unboxing is gettting the orginal value back out again.
+
+👍 Map to matching primitive or struct variable instead:
+
+```
+int x = 32;
+int y = x;
+```
+
+
 ### Try to avoid the traditional if-else statements like in the following:
 
 ```

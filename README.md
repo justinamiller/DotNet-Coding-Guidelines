@@ -6,7 +6,7 @@ Just keep in mind that this post isn't about how you should indent your code (ta
 
 Feel free to add your own tips through pull requets.
 
-### Try to avoid the tradional if-else statements like in the following:
+### Try to avoid the traditional if-else statements like in the following:
 
 ```
 bool result;

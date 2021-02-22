@@ -2,9 +2,9 @@
 
 This repo highlights the list of software engineering guidelines in general. Most of these are industry-wide conventions, thus using them will ensure that your code is easily readable by people who are not you.
 
-Just keep in mind that this post isn't about how you should indent your code (tabs vs spaces or curly braces placements), but it's more of a guidlines on how to write clean code that are easy to manage. With that said, if you are leading a team or even a single contributor developer who wanted to become better, having a set of coding guidelines is a great start to make that happen.
+Just keep in mind that this post isn't about how you should indent your code, but it's more of a guidlines on how to write clean code that are easy to manage. With that said, if you are leading a team or even a single contributor developer who wanted to become better, having a set of coding guidelines is a great start to make that happen.
 
-Feel free to add your own tips through pull requets.
+Also, feel free to add your own tips through pull requets.
 
 ### Try to avoid the traditional if-else statements like in the following:
 

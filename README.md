@@ -246,7 +246,7 @@ string greetings = string.Format("Hello {0}!", name);
 
 ```
 string name = "Vjor";
-string greeting = $"Hello, {name}!;
+string greeting = $"Hello, {name}!";
 ```
 
 The preceding code is much more concise and readable compared to other approaches.

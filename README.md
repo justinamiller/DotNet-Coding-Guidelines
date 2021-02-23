@@ -48,9 +48,9 @@ The preceding code is much cleaner, easier to read and understand. On top of tha
 ```
 if (something != null)
 {
-    if (other != null)
+    if (something.other != null)
     {
-        return whatever;
+        return something.other.whatever;
     }
 }
 ```
@@ -68,9 +68,9 @@ The preceding code is also much cleaner and concise.
 ```
 if (something != null)
 {
-    if (other != null)
+    if (something.other != null)
     {
-        return whatever;
+        return something.other.whatever;
     }
     else
     {
@@ -138,7 +138,7 @@ if (number is null)
 ### Avoid code without braces ({}) for single conditional if statement, for and foreach loops like in the following:
 
 ```
-if(conditioin) action;
+if (condition) action;
 ```
 
 Without the braces, it is too easy to accidentally add a second line thinking it is included in the if, when it isn’t.
@@ -162,15 +162,15 @@ if (condition)
 {
    //do something
 }
-else if(condition)
+else if (condition)
 {
    //do something
 }
-else if(condition)
+else if (condition)
 {
    //do something
 }
-else(condition)
+else (condition)
 {
    //do something else
 }
@@ -179,7 +179,7 @@ else(condition)
 👍 Do use switch statements instead:
 
 ```
-switch(condition)
+switch (condition)
 {
    case 1:
       //do something
@@ -195,7 +195,6 @@ switch(condition)
      break;
 }
 ```
-
 👍 But prefer switch expressions over switch statements where possible like in the following:
 
 ```
@@ -208,7 +207,7 @@ condition switch
 }
 ```
 
-The preceding code is more concise yet, still easy to read and understand. (Note, only available in C# 8 or later versions) 💡 Exceptions - There are cases that if-else statements would make more sense than using switch statements. For example, if the condition involves different objects and complex conditions.
+The preceding code is more concise yet, still easy to read and understand. (Note, only available in C# 8 or later versions) 💡 Exceptions - There are cases that if-else statements would make more sense than using switch statements. One such example could be, if the condition involves different objects and complex conditions, though if the conditional logic here boils down to checking whether an object matches a certain shape in terms of property values, you might want to explore recursive pattern matching.
 
 ### Do use the using statement when working with objects that eat resources or implements IDisposable interface:
 
@@ -226,7 +225,18 @@ using var stream = new MemoryStream();
 // do something
 ```
 
-The preceding code reduces the number of curly braces in your method, but it can still be seen easily where a resource is disposed. For more information, see: "pattern-based using" and "using declarations"
+The preceding code reduces the number of curly braces in your method, but it can still be seen easily where a resource is disposed. For more information, see: "pattern-based using" and "using declarations".
+
+⚠ Do not use either of the above if the IDisposable is the return value of your method:
+
+```
+Stream GetABrokenFileStream()
+{
+    // this is wrong! The stream will be disposed when you exit the method
+    using var fileStream = File.OpenRead("path to my file");
+    return fileStream;
+}
+```
 
 ### Avoid concatenating strings with the + sign/symbol like in the following:
 
@@ -242,7 +252,7 @@ string name = "Vynn";
 string greetings = string.Format("Hello {0}!", name);
 ```
 
-👍 Or prefer using Prefer using string interpolation ($) instead where possible:
+👍 Or prefer using string interpolation ($) instead where possible:
 
 ```
 string name = "Vjor";
@@ -300,8 +310,9 @@ public string Greeter(string name)
 
 ```
 public string Greeter(string name) => $"Hello {name}!";
-The preceding code is more concise while maintaining readability.
 ```
+
+The preceding code is more concise while maintaining readability.
 
 ### Avoid object initialization like in the following:
 
@@ -314,9 +325,10 @@ person.LastName = "Durano";
 👍 Do use object and collection initializers instead:
 
 ```
-var person = new Person {
-	FirstName = "Vianne",
-	LastName = "Durano"
+var person = new Person
+{
+    FirstName = "Vianne",
+    LastName = "Durano"
 };
 ```
 
@@ -348,7 +360,7 @@ public (string FirstName, string LastName) GetName()
 
 The preceding code is more convenient for accessing objects and manipulating the data set. Tuples replaces the need to create a new class whose sole purpose is to carry around data.
 
-### Try to create an Extention Methods to perform common tasks such as conversion, validationn, formatting, parsing, transformation, you name it. So, instead of doing the following:
+### Try to create an Extention Methods to perform common tasks such as conversion, validation, formatting, parsing, transformation, you name it. So, instead of doing the following:
 
 ```
 string dateString = "40/1001/2021";
@@ -395,7 +407,7 @@ int orderCount;
 bool isCompleted;
 ```
 
-The preceding code is consistent with the Microsoft’s .NET Framework and makes code more natural to read.
+The preceding code is consistent with the Microsoft’s .NET Framework and more natural to read.
 
 ### Do not use initials as identifier abbreviations like in the following:
 
@@ -480,7 +492,7 @@ public class ClassName
 }
 ```
 
-This is so that our code are consistent with the Microsoft .NET Framework.
+This is so that our code is consistent with the Microsoft .NET Framework.
 
 ### Do use Camel Casing for method arguments and local variables:
 
@@ -498,7 +510,7 @@ This is so that our code are consistent with the Microsoft .NET Framework.
 ```
 int daysUntilProgramExpiry;
 
-public List<Person> GetPersonProfileById(long personId)
+public Person GetPersonProfileById(long personId)
 {
        //do something
 }
@@ -515,7 +527,7 @@ public async Task<List<Person>> GetPersonProfileByIdAsync(long personId)
 }
 ```
 
-This enable developers to easily identify synchornous vs asynchronous methods by just looking at the method itself.
+This enable developers to easily identify synchronous vs asynchronous methods by just looking at the method name itself.
 
 ### Do prefix interfaces with the capital letter I
 
@@ -528,7 +540,7 @@ public interface IPersonManager
 
 This is to easily distinguish between an interface and classes. In fact, it's a well known standard for defining interfaces.
 
-### Do prefix global variables and class members with underscores (\_):
+### Do prefix global variables and class fields with underscores (\_):
 
 ```
 private readonly ILogger<ClassName> _logger;

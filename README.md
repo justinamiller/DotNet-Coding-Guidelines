@@ -24,21 +24,21 @@ int y = x;
 ### Try to avoid the traditional if-else statements like in the following:
 
 ```
-bool result;
+int statusCode;
 if (condition)
 {
-   result = true;
+   statusCode = 1;
 }
 else
 {
-   result = false;
+   statusCode = 2;
 }
 ```
 
 👍 Do use ternary conditional operator (?:) instead:
 
 ```
-bool result = condition ? true: false;
+int statusCode = condition ? 1 : 2;
 ```
 
 The preceding code is much cleaner, easier to read and understand. On top of that, it's more concise.

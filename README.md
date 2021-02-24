@@ -48,9 +48,9 @@ The preceding code is much cleaner, easier to read and understand. On top of tha
 ```
 if (something != null)
 {
-    if (other != null)
+    if (something.Other != null)
     {
-        return whatever;
+        return something.Other.Whatever;
     }
 }
 ```
@@ -58,7 +58,7 @@ if (something != null)
 👍 Do use null conditional (?.) operator instead:
 
 ```
-return something?.other?.whatever;
+return something?.Other?.Whatever;
 ```
 
 The preceding code is also much cleaner and concise.

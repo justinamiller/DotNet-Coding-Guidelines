@@ -565,7 +565,7 @@ This is just a generally accepted practice that prevents the need to hunt for va
 ```
 public class SomeClass
 {
-    private void SomePublicMethodA()
+    public void SomePublicMethodA()
     {
 
     }

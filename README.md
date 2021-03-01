@@ -560,7 +560,7 @@ private int _age;
 
 This is just a generally accepted practice that prevents the need to hunt for variable declarations.
 
-### Do consider putting all your private methods at the botoom after public methods:
+### Do consider putting all your private methods at the bottom after public methods:
 
 ```
 public class SomeClass

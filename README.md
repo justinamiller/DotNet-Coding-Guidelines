@@ -43,6 +43,27 @@ int statusCode = condition ? 1 : 2;
 
 The preceding code is much cleaner, easier to read and understand. On top of that, it's more concise.
 
+### Try to avoid nested Ternary operators:
+
+```
+public string GetJobStatus(Job job)
+{
+  return job.IsRunning ? "Running" : job.HasErrors ? "Failed" : "Succeeded";
+}
+```
+
+👍 Use another line to express the nested operation as a separate statement for readability:
+
+```
+if (job.IsRunning)
+  {
+    return "Running";
+  }
+return job.HasErrors ? "Failed" : "Succeeded";
+```
+
+Nesting ternary operators results in the kind of code that may seem clear as day when you write it, but six months later could leave maintainers (or future you) scratching their heads.
+
 ### Try to avoid using if statement for null checks like in the following:
 
 ```

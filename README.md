@@ -385,7 +385,7 @@ The preceding code is more convenient for accessing objects and manipulating the
 
 ```
 string dateString = "40/1001/2021";
-var isDateValid = DateTime.TryParse(dateString, our var date);
+var isDateValid = DateTime.TryParse(dateString, out var date);
 ```
 
 The preceding code is perfectly fine and should handle the conversion safely. However, the code is bit lengthy just to do basic conversion. Imagine you have tons of the same code conversion cluttering within the different areas in your project. Your code could turn into a mess or potentially causes you alot of development time overtime.

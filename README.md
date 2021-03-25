@@ -704,3 +704,38 @@ public record Person(string FirstName, string LastName);
 ```
 
 Using record types will automatically generates the boilerplate code for you and keeping your code concise. Records will be really useful for defining DTOs, Commands or any object that carries immutable data around. For more information about this feature, see: [Record Types](https://devblogs.microsoft.com/dotnet/c-9-0-on-the-record/)
+
+### Use Attributes on local functions
+before c# 9.0 we used C# compiler directive on local functions
+
+```
+static void Main(string[] args)
+        {
+            static void DoAction()
+            {
+                // DoAction
+
+                Console.WriteLine("DoAction...");
+            }
+
+#if DEBUG
+            DoAction();
+#endif
+        }
+```
+in c# 9.0 can be written in the following way using Attributes on local functions:
+
+```
+static void Main(string[] args)
+        {
+            [Conditional("DEBUG")]
+            static void DoAction()
+            {
+                // Do Action Here
+
+                Console.WriteLine("Do Action...");
+            }
+
+            DoAction();
+        }
+```

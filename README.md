@@ -720,4 +720,6 @@ static void Main(string[] args)
 ```
 
 ### Arrange your code before commits
+```
 Visual Studio shortcut : CRTL+K+D
+```

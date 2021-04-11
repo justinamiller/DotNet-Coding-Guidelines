@@ -723,3 +723,16 @@ static void Main(string[] args)
 ```
 Visual Studio shortcut : CRTL+K+D
 ```
+
+### Use local function for conditions
+```
+if (RequestIsValid(request.Id))
+{
+
+}
+
+bool RequestIsValid(int id)
+{
+    return id > 0;
+}
+```

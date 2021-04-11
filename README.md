@@ -736,3 +736,8 @@ bool RequestIsValid(int id)
     return id > 0;
 }
 ```
+
+### Always remove unnecessary usings and sort them
+```
+Visual Studio shortcut : CRTL+R+G
+```

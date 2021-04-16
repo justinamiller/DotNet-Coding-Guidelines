@@ -739,3 +739,26 @@ static void Main(string[] args)
             DoAction();
         }
 ```
+
+### Arrange your code before commits
+```
+Visual Studio shortcut : CRTL+K+D
+```
+
+### Use local function for conditions
+```
+if (RequestIsValid(request.Id))
+{
+
+}
+
+bool RequestIsValid(int id)
+{
+    return id > 0;
+}
+```
+
+### Always remove unnecessary usings and sort them
+```
+Visual Studio shortcut : CRTL+R+G
+```

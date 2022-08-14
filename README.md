@@ -762,3 +762,31 @@ bool RequestIsValid(int id)
 ```
 Visual Studio shortcut : CRTL+R+G
 ```
+
+### Don't return null collection in your code:
+
+```
+public IEnumerable<User> GetUsers()
+{
+    if (SomeConditions())
+    {
+        return null;
+    }
+
+    return Data;
+}
+```
+
+👍 Do use Enumerable.Empty instead:
+
+```
+public IEnumerable<User> GetUsers()
+{
+    if (SomeConditions())
+    {
+        return Enumerable.Empty<User>();
+    }
+
+    return Data;
+}
+```
